@@ -16,21 +16,21 @@
         }
     </style>
 
-    <div class="relative min-h-screen bg-gray-100 sm:flex dark:bg-gray-900 selection:bg-indigo-500 selection:text-white">
+    <div class="relative min-h-screen bg-zinc-100 sm:flex dark:bg-zinc-900 selection:bg-indigo-500 selection:text-white">
 
         @if (Route::has('login'))
             <div class="p-6 text-right sm:fixed sm:top-0 sm:right-0">
                 @auth
                     <a href="{{ route('home') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Home</a>
+                        class="font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Home</a>
                 @else
                     <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Log
+                        class="font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Log
                         in</a>
 
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Register</a>
+                            class="ml-4 font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Register</a>
                     @endif
                 @endauth
             </div>
@@ -38,8 +38,16 @@
 
         <div class="mt-16 m-8 rounded-3xl overflow-hidden h-fit relative">
             <img src="{{ Vite::asset('resources/images/hero.webp') }}" alt="" class="brightness-50">
-            <div class="absolute inset-x-0 bottom-0 text-center text-white text-4xl tracking-tight">
-                Find Your Dream Cafe
+            <div class="absolute inset-x-0 bottom-8 flex-col items-center justify-center">
+                <h1 class="text-white text-5xl tracking-tight text-center">
+                    Find Your Dream Cafe
+                </h1>
+                <div class="caret-black text-black mt-6 relative w-fit mx-auto">
+                    <x-lucide-search class="absolute w-7 h-7 top-3.5 left-3.5" />
+                    <input type="text"
+                        class="rounded-full text-2xl h-auto shadow-lg border-0 outline outline-zinc-600 px-6 pl-14 py-3 focus-within:ring-2 focus-within:ring-orange-600 w-96"
+                        placeholder="Houston" />
+                </div>
             </div>
         </div>
     </div>
