@@ -19,6 +19,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
+    @fluxStyles
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,6 +28,7 @@
 
 <body>
     @yield('body')
+    @fluxScripts
 </body>
 
 </html>

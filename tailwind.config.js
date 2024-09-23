@@ -24,6 +24,8 @@ module.exports = {
         "./resources/**/*.php",
         "./resources/**/*.vue",
         "./resources/**/*.twig",
+        "./vendor/livewire/flux-pro/stubs/**/*.blade.php",
+        "./vendor/livewire/flux/stubs/**/*.blade.php",
     ],
     plugins: [
         require("@tailwindcss/forms"),
