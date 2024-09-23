@@ -1,10 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
-    <div class="">
-        Create
-    </div>
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <livewire:listings.create />
-    </div>
+    <flux:heading size="xl" level="1">Coffee Shop Information</flux:heading>
+
+    <flux:subheading>Provide details about the coffee shop.</flux:subheading>
+
+    <livewire:listings.create />
 @endsection

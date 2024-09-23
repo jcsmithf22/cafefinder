@@ -2,7 +2,7 @@
 
 @section('body')
     <div
-        class="relative flex-col min-h-screen bg-zinc-100 sm:flex dark:bg-zinc-900 selection:bg-indigo-500 selection:text-white pb-8">
+        class="relative flex-col min-h-screen bg-zinc-100 sm:flex selection:bg-indigo-500 selection:text-white pb-8">
         <div class="sticky top-2 z-50 flex flex-row items-center justify-between px-8 my-2 bg-zinc-100/75 backdrop-blur transition-all duration-300 ring-zinc-300"
             :class="{ 'ring-1 shadow-lg mx-12 rounded-full': hasScrolled }" x-data="{ hasScrolled: false }"
             @scroll.window="hasScrolled = (window.pageYOffset < 64) ? false : true">

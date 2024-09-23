@@ -23,7 +23,7 @@
         <div class="w-full">
             <x-card class="p-6 w-full flex items-center justify-between bg-yellow-100 ring-yellow-300">
                 <p>Don't see your coffee shop?</p>
-                <a href="{{ route('new_listing') }}"
+                <a href="{{ route('listing.create') }}"
                     class="group flex h-10 items-center justify-center rounded-full border border-orange-600 bg-gradient-to-b from-orange-400 via-orange-500 to-orange-600 px-4 text-neutral-50 shadow-[inset_0_1px_0px_0px_#FDBA74] hover:from-orange-600 hover:via-orange-600 hover:to-orange-600 active:[box-shadow:none]"><span
                         class="block group-active:[transform:translate3d(0,1px,0)]">Post a coffee shop</span></a>
             </x-card>

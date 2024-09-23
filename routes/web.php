@@ -56,5 +56,5 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 
     Route::get('listings/create', [ListingController::class, 'create'])
-        ->name('new_listing');
+        ->name('listing.create');
 });
