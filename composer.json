@@ -14,7 +14,8 @@
         "livewire/flux-pro": "^1.0",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6",
-        "mallardduck/blade-lucide-icons": "^1.23"
+        "mallardduck/blade-lucide-icons": "^1.23",
+        "spatie/laravel-sluggable": "^3.6"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",

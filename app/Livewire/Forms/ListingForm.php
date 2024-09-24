@@ -36,7 +36,4 @@ class ListingForm extends Form
 
     #[Validate('nullable|image|max:1024|mimes:jpg,webp,png')]
     public $photo;
-
-    #[Validate('nullable')]
-    public string $image = '';
 }
