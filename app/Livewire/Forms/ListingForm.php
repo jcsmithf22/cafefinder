@@ -4,12 +4,9 @@ namespace App\Livewire\Forms;
 
 use Livewire\Attributes\Validate;
 use Livewire\Form;
-use Livewire\WithFileUploads;
 
 class ListingForm extends Form
 {
-    use WithFileUploads;
-
     #[Validate('required')]
     public string $name = '';
 
@@ -37,6 +34,9 @@ class ListingForm extends Form
     #[Validate('nullable')]
     public string $email = '';
 
-    #[Validate('image|max:1024')]
+    #[Validate('nullable|image|max:1024|mimes:jpg,webp,png')]
     public $photo;
+
+    #[Validate('nullable')]
+    public string $image = '';
 }

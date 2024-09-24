@@ -18497,6 +18497,161 @@ namespace Illuminate\Support\Facades {
             }
     }
 
+namespace Flux {
+            /**
+     * 
+     *
+     * @see \Livewire\FluxManager
+     */        class Flux {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function boot()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->boot();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function ensurePro()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->ensurePro();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function pro()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->pro();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function markAssetsRendered()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->markAssetsRendered();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function styles()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->styles();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function scripts()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->scripts();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function classes($styles = null)
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->classes($styles);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function disallowWireModel($attributes, $componentName)
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->disallowWireModel($attributes, $componentName);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function splitAttributes($attributes, $by = [])
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->splitAttributes($attributes, $by);
+        }
+                    /**
+         * This is a hack to fix pass-through props with hyphenated names.
+         * 
+         * ..
+         *
+         * @static 
+         */        public static function restorePassThroughProps($attributes, $passThroughProps)
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->restorePassThroughProps($attributes, $passThroughProps);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function applyInset($inset, $top, $right, $bottom, $left)
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->applyInset($inset, $top, $right, $bottom, $left);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function bootComponents()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->bootComponents();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function bootModal()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->bootModal();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function modal($name)
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->modal($name);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function modals()
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->modals();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function toast($text, $heading = null, $duration = 5000)
+        {
+                        /** @var \Flux\FluxManager $instance */
+                        return $instance->toast($text, $heading, $duration);
+        }
+            }
+    }
+
 namespace Livewire {
             /**
      * 
@@ -18871,6 +19026,21 @@ namespace Livewire {
         {            //Method inherited from \Livewire\LivewireManager         
                         /** @var \Livewire\Volt\LivewireManager $instance */
                         return $instance->originalMethod();
+        }
+            }
+            /**
+     * 
+     *
+     */        class Component {
+                    /**
+         * 
+         *
+         * @see \Flux\FluxManager::bootModal()
+         * @param mixed $name
+         * @static 
+         */        public static function modal($name)
+        {
+                        return \Livewire\Component::modal($name);
         }
             }
     }
@@ -19509,6 +19679,42 @@ namespace Illuminate\Testing {
             }
     }
 
+namespace App\Livewire\Auth {
+            /**
+     * 
+     *
+     */        class Login {
+            }
+            /**
+     * 
+     *
+     */        class Register {
+            }
+            /**
+     * 
+     *
+     */        class Verify {
+            }
+    }
+
+namespace App\Livewire\Auth\Passwords {
+            /**
+     * 
+     *
+     */        class Email {
+            }
+            /**
+     * 
+     *
+     */        class Reset {
+            }
+            /**
+     * 
+     *
+     */        class Confirm {
+            }
+    }
+
 namespace Pest\Laravel\Commands {
             /**
      * 
@@ -19534,6 +19740,19 @@ namespace BladeUI\Icons\Console {
      * 
      *
      */        class ClearCommand {
+            }
+    }
+
+namespace Flux\Console {
+            /**
+     * 
+     *
+     */        class ActivateCommand {
+            }
+            /**
+     * 
+     *
+     */        class PublishCommand {
             }
     }
 
@@ -23762,6 +23981,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class Flux extends \Flux\Flux {}
             class Livewire extends \Livewire\Livewire {}
     }
 
