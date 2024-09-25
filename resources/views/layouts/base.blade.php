@@ -18,7 +18,6 @@
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
-    @livewireScripts
     @fluxStyles
 
 
@@ -29,6 +28,7 @@
 <body class="bg-zinc-100">
     @yield('body')
     @fluxScripts
+    @livewireScriptConfig
 </body>
 
 </html>
