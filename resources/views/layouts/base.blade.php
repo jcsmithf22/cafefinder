@@ -15,13 +15,32 @@
 
     <!-- Fonts -->
     <!-- HTML in your document's head -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+{{--    <link rel="preconnect" href="https://rsms.me/">--}}
+{{--    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">--}}
     {{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
     {{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
     {{--    <link--}}
     {{--        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"--}}
     {{--        rel="stylesheet">--}}
+
+    <style>
+        /* CSS */
+        @font-face {
+            font-family: InterVariable;
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url("{{ Vite::asset('resources/fonts/InterVariable.woff2') }}") format('woff2');
+        }
+
+        /*:root {*/
+        /*    font-family: Inter, sans-serif;*/
+        /*    font-feature-settings: 'liga' 1, 'calt' 1; !* fix for Chrome *!*/
+        /*}*/
+        @supports (font-variation-settings: normal) {
+            :root { font-family: InterVariable, sans-serif; }
+        }
+    </style>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
