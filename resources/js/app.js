@@ -1,4 +1,4 @@
-import.meta.glob(["../images/**"]);
+import.meta.glob(["../images/**", "../fonts/**"]);
 
 import { Livewire } from "../../vendor/livewire/livewire/dist/livewire.esm";
 
