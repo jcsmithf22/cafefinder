@@ -1,0 +1,33 @@
+import:
+  - recipe/laravel.php
+  - contrib/php-fpm.php
+  - contrib/npm.php
+
+config:
+  application: "cafefinder"
+  repository: "https://github.com/jcsmithf22/cafefinder"
+  php_fpm_version: "8.3"
+
+hosts:
+  prod:
+    remote_user: forge
+    hostname: "5.161.89.247"
+    deploy_path: "~/cafe.josiahsmith.dev"
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:storage:link
+    - artisan:view:cache
+    - artisan:config:cache
+    - artisan:migrate
+    - npm:install
+    - npm:run:prod
+    - deploy:publish
+    - php-fpm:reload
+  npm:run:prod:
+    - run: "cd {{release_or_current_path}} && npm run build && rm -rf node_modules"
+
+after:
+  deploy:failed: deploy:unlock
