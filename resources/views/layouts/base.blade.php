@@ -26,7 +26,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
-<body class="">
+<body class="bg-zinc-100">
     @yield('body')
     @fluxScripts
 </body>

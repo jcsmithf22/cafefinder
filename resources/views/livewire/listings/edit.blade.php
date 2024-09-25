@@ -5,23 +5,32 @@ use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use App\Models\Listing;
+use Illuminate\Support\Facades\Storage;
 
 new class extends Component {
     use WithFileUploads;
 
+    public Listing $listing;
     public ListingForm $form;
 
-    public function save(): void
+    public function mount(): void
     {
+        $this->form->fill($this->listing->toArray());
+    }
+
+    public function update(): void
+    {
+        $this->authorize('update', $this->listing);
+
         $validated = $this->validate();
-        $listing = new Listing($validated);
         if ($this->form->photo) {
             $path = $this->form->photo->store('logos', 'public');
-            $listing->image = $path;
-            // $validated['image'] = $path;
+            $validated['image'] = $path;
+            if ($this->listing->image) {
+                Storage::disk('public')->delete($this->listing->image);
+            }
         }
-        // auth()->user()->listings()->create($validated);
-        auth()->user()->listings()->save($listing);
+        $this->listing->update($validated);
         $this->redirectRoute('listing.index');
     }
 
@@ -32,7 +41,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    <form class="flex flex-col gap-y-12" wire:submit="save">
+    <form class="flex flex-col gap-y-12" wire:submit="update">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-3">
                 <flux:input wire:model="form.name" label="Shop name" />
@@ -76,7 +85,7 @@ new class extends Component {
                             @if ($form->photo)
                                 <div
                                     class="mx-auto flex flex-col justify-center items-center h-16 w-16 overflow-hidden rounded-lg border shadow-sm border-zinc-200 border-b-zinc-300/8 -rotate-12 transition hover:scale-105 hover:rotate-0">
-                                    <img src="{{ $form->photo->temporaryUrl() }}" class="h-16 w-auto"  alt="new logo"/>
+                                    <img src="{{ $form->photo->temporaryUrl() }}" class="h-16 w-auto" alt="new logo" />
                                 </div>
                                 <div class="mt-4 flex gap-x-2 items-center">
                                     <p class="text-xs leading-5 text-zinc-600">
@@ -84,12 +93,20 @@ new class extends Component {
                                     <flux:button type="button" icon="x-mark" size="sm" wire:click="clearPhoto" />
                                 </div>
                             @else
-                                <svg class="mx-auto h-12 w-12 text-zinc-300" viewBox="0 0 24 24" fill="currentColor"
-                                     aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
-                                          clip-rule="evenodd" />
-                                </svg>
+                                @if ($this->listing->image)
+                                    <div
+                                        class="mx-auto flex flex-col justify-center items-center h-16 w-16 overflow-hidden rounded-lg border shadow-sm border-zinc-200 border-b-zinc-300/8 transition hover:scale-105">
+                                        <img src="{{ asset('storage/' . $this->listing->image) }}"
+                                             class="h-16 w-auto" alt="existing logo" />
+                                    </div>
+                                @else
+                                    <svg class="mx-auto h-12 w-12 text-zinc-300" viewBox="0 0 24 24" fill="currentColor"
+                                         aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                                              clip-rule="evenodd" />
+                                    </svg>
+                                @endif
                                 <div class="mt-4 flex text-sm leading-6 text-zinc-600">
                                     <label for="logo-upload"
                                            class="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 hover:text-blue-500">
@@ -108,7 +125,7 @@ new class extends Component {
             </div>
 
             <div class="flex justify-end col-span-full">
-                <flux:button type="submit" variant="primary">Submit</flux:button>
+                <flux:button type="submit" variant="primary">Update</flux:button>
             </div>
 
         </div>
