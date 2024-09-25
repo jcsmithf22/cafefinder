@@ -49,17 +49,17 @@
             class="lg:hidden bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-            <flux:brand href="#" name="Cafe Finder" class="px-2 dark:hidden">
+            <flux:brand href="{{ route('home') }}" name="Cafe Finder" class="px-2 dark:hidden">
                 <x-lucide-coffee class="w-6 h-6" />
             </flux:brand>
 
-            <flux:brand href="#" name="Cafe Finder" class="px-2 hidden dark:flex">
+            <flux:brand href="{{ route('home') }}" name="Cafe Finder" class="px-2 hidden dark:flex">
                 <x-lucide-coffee class="w-6 h-6 text-white" />
             </flux:brand>
 
             <flux:navlist variant="outline">
                 <flux:navlist.item icon="home" href="#" :current="request()->is('/')">Home</flux:navlist.item>
-                <flux:navlist.item icon="inbox" href="#" :current="request()->routeIs('listing.*')">Listings
+                <flux:navlist.item icon="inbox" href="{{ route('listing.index') }}" :current="request()->routeIs('listing.*')">Listings
                 </flux:navlist.item>
                 <flux:navlist.item icon="document-text" href="#">Documents</flux:navlist.item>
                 <flux:navlist.item icon="calendar" href="#">Calendar</flux:navlist.item>

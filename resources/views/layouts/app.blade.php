@@ -6,7 +6,7 @@
         <div
             class="sticky top-2 z-50 flex flex-row items-center justify-between px-8 my-2 bg-zinc-100/75 backdrop-blur transition-all duration-300 ring-zinc-300"
             :class="{ 'ring-1 shadow-lg mx-12 rounded-full': hasScrolled }" x-data="{ hasScrolled: false }"
-            @scroll.window="hasScrolled = (window.pageYOffset < 64) ? false : true">
+            @scroll.window="hasScrolled = (window.scrollY >= 64);">
             <div class="font-medium font-serif tracking-wide text-lg hover:text-zinc-700">
                 <a href="{{ route('home') }}" class=" flex items-center gap-x-2">
                     <x-lucide-coffee class="w-6 h-6" />
@@ -18,6 +18,9 @@
                     @auth
                         <a href="{{ route('home') }}"
                            class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Home</a>
+
+                        <a href="{{ route('listing.index') }}"
+                           class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Listings</a>
                     @else
                         <a href="{{ route('login') }}"
                            class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-indigo-500">Log
