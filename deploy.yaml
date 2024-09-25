@@ -1,12 +1,13 @@
 import:
   - recipe/laravel.php
-  - contrib/php-fpm.php
   - contrib/npm.php
 
 config:
   application: "cafefinder"
   repository: "https://github.com/jcsmithf22/cafefinder"
-  php_fpm_version: "8.3"
+  shared_files:
+    - .env
+    - auth.json
 
 hosts:
   prod:
@@ -25,7 +26,6 @@ tasks:
     - npm:install
     - npm:run:prod
     - deploy:publish
-    - php-fpm:reload
   npm:run:prod:
     - run: "cd {{release_or_current_path}} && npm run build && rm -rf node_modules"
 
