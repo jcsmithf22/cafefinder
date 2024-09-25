@@ -50,6 +50,23 @@
  * .skew-45 { ... }
  */
 
+/* CSS */
+@font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    //src: url("{{ Vite::asset('resources/fonts/InterVariable.woff2') }}") format('woff2');
+    src: url("../fonts/InterVariable.woff2") format('woff2');
+}
+
+/*:root {*/
+/*    font-family: Inter, sans-serif;*/
+/*    font-feature-settings: 'liga' 1, 'calt' 1; !* fix for Chrome *!*/
+/*}*/
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+}
 
 [x-cloak] {
     display: none;
