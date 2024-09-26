@@ -4,8 +4,8 @@
     <div
         class="relative flex-col min-h-screen sm:flex selection:bg-indigo-500 selection:text-white pb-8 max-w-7xl mx-auto">
         <div
-            class="sticky top-2 z-50 flex flex-row items-center justify-between px-8 my-2 bg-zinc-100/75 backdrop-blur transition-all duration-300 ring-zinc-300"
-            :class="{ 'ring-1 shadow-lg mx-12 rounded-full': hasScrolled }" x-data="{ hasScrolled: false }"
+            class="sticky top-2 z-50 flex flex-row items-center justify-between px-6 sm:px-8 my-2 bg-zinc-100/75 backdrop-blur transition-all duration-300 ring-zinc-300"
+            :class="{ 'ring-1 shadow-lg mx-4 sm:mx-12 rounded-full': hasScrolled }" x-data="{ hasScrolled: false }"
             @scroll.window="hasScrolled = (window.scrollY >= 64);">
             <div class="font-medium font-serif tracking-wide text-lg hover:text-zinc-700">
                 <a href="{{ route('home') }}" class=" flex items-center gap-x-2">
@@ -36,7 +36,7 @@
             @endif
         </div>
 
-        <div class="mx-8">
+        <div class="mx-2 sm:mx-8">
             @yield('content')
         </div>
 
