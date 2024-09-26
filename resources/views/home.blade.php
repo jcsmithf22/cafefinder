@@ -10,7 +10,7 @@
             <div
                 class="caret-black text-black mt-6 relative shadow-lg max-w-96 w-full mx-auto flex items-center bg-white rounded-full overflow-hidden focus-within:ring-2 focus-within:ring-orange-600">
                 <x-lucide-search class="w-7 h-7 top-3 left-3 m-3" />
-                <input type="text" class="border-0 focus-within:ring-0 focus:ring-0 px-0 py-0 text-lg w-full"
+                <input type="text" class="border-0 focus:outline-0 px-0 py-1 text-lg w-full"
                        placeholder="Houston" />
             </div>
 
@@ -23,7 +23,7 @@
         <div class="w-full flex gap-4 flex-wrap h-fit">
             <x-card class="p-6 w-full flex flex-wrap gap-3 items-center justify-between bg-yellow-100 ring-yellow-300">
                 <p>Don't see your coffee shop?</p>
-                <a href="{{ route('listing.create') }}"
+                <a wire:navigate href="{{ route('listing.create') }}"
                    class="group flex h-10 items-center justify-center rounded-full border border-orange-600 bg-gradient-to-b from-orange-400 via-orange-500 to-orange-600 px-4 text-neutral-50 shadow-[inset_0_1px_0px_0px_#FDBA74] hover:from-orange-600 hover:via-orange-600 hover:to-orange-600 active:[box-shadow:none]"><span
                         class="block group-active:[transform:translate3d(0,1px,0)]">Post a coffee shop</span></a>
             </x-card>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <flux:heading size="lg"><a href="{{ route('listing.show', $listing->slug) }}">{{ $listing->name }}</a></flux:heading>
+                        <flux:heading size="lg"><a wire:navigate href="{{ route('listing.show', $listing->slug) }}">{{ $listing->name }}</a></flux:heading>
                         @if ($listing->description)
                             <flux:subheading><p class="whitespace-pre-wrap">{{ trim($listing->description) }}</p></flux:subheading>
                         @endif

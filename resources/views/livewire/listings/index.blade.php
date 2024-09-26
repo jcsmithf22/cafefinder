@@ -38,9 +38,9 @@ new class extends Component {
                     <img src="{{ asset("storage/" . $listing->image) }}" alt="logo" class="h-16 w-auto" />
                 </div>
             @endif
-            <p><a href="{{ route('listing.show', $listing->slug) }}">{{ $listing->name }}</a></p>
+            <p><a wire:navigate href="{{ route('listing.show', $listing->slug) }}">{{ $listing->name }}</a></p>
             <flux:button wire:click="delete('{{ $listing->slug }}')">Delete</flux:button>
-            <a href="{{ route('listing.edit', $listing->slug) }}">Edit</a>
+            <a wire:navigate href="{{ route('listing.edit', $listing->slug) }}">Edit</a>
         </flux:card>
     @endforeach
 </div>

@@ -28,7 +28,7 @@ module.exports = {
         "./vendor/livewire/flux/stubs/**/*.blade.php",
     ],
     plugins: [
-        require("@tailwindcss/forms"),
+        // require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
     ],
 };
