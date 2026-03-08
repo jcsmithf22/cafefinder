@@ -32,7 +32,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
-<body class="bg-zinc-100">
+<body class="bg-white">
 @yield('body')
 @fluxScripts
 @livewireScriptConfig

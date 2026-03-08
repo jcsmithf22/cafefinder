@@ -18,10 +18,10 @@
     </div>
 
     <div class="flex flex-col sm:flex-row gap-8">
-        <x-card class="w-80 sm:h-screen h-8">
+        <x-card class="w-80 sm:h-screen h-8" padding="" border="">
         </x-card>
         <div class="w-full flex gap-4 flex-wrap h-fit">
-            <x-card class="p-6 w-full flex flex-wrap gap-3 items-center justify-between bg-yellow-100 ring-yellow-300">
+            <x-card class="p-6 w-full flex flex-wrap gap-3 items-center justify-between bg-yellow-100 ring-yellow-300" border="bg-yellow-200">
                 <p>Don't see your coffee shop?</p>
                 <a wire:navigate href="{{ route('listing.create') }}"
                    class="group flex h-10 items-center justify-center rounded-full border border-orange-600 bg-gradient-to-b from-orange-400 via-orange-500 to-orange-600 px-4 text-neutral-50 shadow-[inset_0_1px_0px_0px_#FDBA74] hover:from-orange-600 hover:via-orange-600 hover:to-orange-600 active:[box-shadow:none]"><span

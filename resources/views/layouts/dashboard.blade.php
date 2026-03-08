@@ -7,7 +7,7 @@
 {{--</flux:navbar.item>--}}
 
 @section('body')
-    <div class="dark:bg-zinc-800 bg-zinc-100 min-h-[100svh]">
+    <div class="dark:bg-zinc-800 bg-white min-h-[100svh]">
         <flux:sidebar sticky stashable
                       class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
